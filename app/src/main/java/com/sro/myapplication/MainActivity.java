@@ -27,6 +27,7 @@ public class MainActivity extends AppCompatActivity {
             manager.createNotificationChannel(channel);
 
         }
+
         FirebaseMessaging.getInstance().subscribeToTopic("general")
                 .addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override

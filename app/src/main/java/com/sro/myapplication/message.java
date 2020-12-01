@@ -19,10 +19,11 @@ public class message extends FirebaseMessagingService {
         showNotification(remoteMessage.getNotification().getTitle(),remoteMessage.getNotification().getBody());
     }
     public void showNotification(String title, String msg){
-        PendingIntent intent = PendingIntent.getActivity(this,0,new Intent(this,MainActivity2.class),PendingIntent.FLAG_CANCEL_CURRENT);
-         NotificationCompat.Builder builder = new NotificationCompat.Builder(this,"myNotification")
-                 .setContentIntent(intent)
-                 .setSmallIcon(R.drawable.ic_launcher_foreground)
+        Intent i = new Intent(this,MainActivity2.class);
+        PendingIntent intent = PendingIntent.getActivity(this,1,i,PendingIntent.FLAG_UPDATE_CURRENT);
+        NotificationCompat.Builder builder = new NotificationCompat.Builder(this,"myNotification")
+                .setContentIntent(intent)
+                .setSmallIcon(R.drawable.ic_launcher_foreground)
                 .setContentTitle(title)
                 .setContentText(msg)
                 .setAutoCancel(true);
