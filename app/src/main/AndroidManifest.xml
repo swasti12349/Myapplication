@@ -6,6 +6,7 @@
 
     <application
         android:allowBackup="true"
+        android:name=".OneSignalInit"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
@@ -22,17 +23,15 @@
             </intent-filter>
         </activity>
 
-        <service android:name=".message">
-            <intent-filter>
-                <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
-            </intent-filter>
-        </service>
         <service
-            android:name=".FirebaseID">
+            android:name=".OneSignalService"
+            android:exported="false"
+            android:permission="android.permission.BIND_JOB_SERVICE">
             <intent-filter>
-                <action android:name="com.google.firebase.INSTANCE_ID_EVENT"/>
+                <action android:name="com.onesignal.NotificationExtender" />
             </intent-filter>
         </service>
+
 
     </application>
 
